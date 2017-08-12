@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>My pixel art maker</title>
-    <script src= "pixelJS.js"></script>
-  </head>
 
-  <style>
+<head>
+  <meta charset="utf-8">
+  <title>My pixel art maker</title>
+  <script src="pixelJS.js"></script>
+</head>
+
+<style>
   body {
-    background-color:#d9d9d9;
+    background-color: #d9d9d9;
   }
-
   /*h1 {
     text-align: center;
     margin: auto;
@@ -21,7 +21,7 @@
   #paletteContainer {
     background-color: white;
     width: 100px;
-    height: 821px;
+    height: 870px;
     margin-left: 400px;
     margin-top: 50px;
     float: left;
@@ -30,39 +30,43 @@
 
   #secondPaletteContainer {
     background-color: white;
-    width: 821px;
+    width: 870px;
     height: 100px;
-    clear:left;
+    clear: left;
+    position: relative;
     /*margin-top: 200px;*/
     /*margin: 0 auto;*/
-    margin: auto;
-
+    margin-left: 540px;
   }
 
   .colors {
-    height:35px;
-    width:35px;
-    border-radius:50px;
+    height: 35px;
+    width: 35px;
+    border: 1px solid black;
+    border-radius: 50px;
+
     margin: auto;
     margin-top: 10px;
   }
 
   .colors2 {
-    height:35px;
-    width:35px;
-    border-radius:50px;
-    margin: auto;
-    margin-top: 10px;
     display: inline-block;
+    height: 35px;
+    width: 35px;
+    border: 1px solid black;
+
+    border-radius: 50px;
+    margin-top: 35px;
+    margin-left: 10px;
   }
 
   #pixelContainer {
-    width: 820px;
-    height: 820px;
+    width: 830px;
+    height: 850px;
     margin-top: 50px;
     margin-left: 40px;
     float: left;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     /*border:solid;
     border-color: red;*/
     /*display: inline-block;*/
@@ -77,21 +81,20 @@
     border-color: #d9d9d9;
     background-color: white;
   }
+</style>
 
-  </style>
-
-  <body>
-    <!-- <h1>My Pixel Art Maker</h1> -->
-    <div id='contentContainer'>
-      <div id='paletteContainer' >
-      </div>
-      <div id='pixelContainer'>
-      </div>
-      <div id='secondPaletteContainer'>
-      </div>
+<body>
+  <!-- <h1>My Pixel Art Maker</h1> -->
+  <div id='contentContainer'>
+    <div id='paletteContainer'>
     </div>
+    <div id='pixelContainer'>
+    </div>
+    <div id='secondPaletteContainer'>
+    </div>
+  </div>
 
-  </body>
+</body>
 
 
 </html>
