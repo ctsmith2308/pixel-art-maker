@@ -1,0 +1,13 @@
+.pixelContainer {
+  background-color: grey
+}
+
+#pixels{
+  width: 75px;
+  height: 75px;
+  color: red
+  border: solid;
+  border-width: 5px;
+  border-color: black;
+  float: left;
+}
