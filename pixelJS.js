@@ -1,17 +1,30 @@
-document.addEventListener('DOMContentLoaded', function addDiv() {
+document.addEventListener('DOMContentLoaded', function addPixels() {
   createPixels()
-  createColors(colorArr)
+  createColors(colorArr,'paletteContainer')
+  createColors(colorArr2,'secondPaletteContainer')
   colorClicker();
+  // colorClicker2();
 })
 var colorArr = [
   '#0000e6', '#0000cc', '#0000b3',
-  '#6600cc', '#5900b3', '#4d0099',
-  '#e60000', '#cc0000', '#b30000',
-  '#000000'
+  '#4d0099', '#5900b3', '#6600cc',
+  '#b30000', '#cc0000', '#e60000',
+  '#4d2600', '#663300', '#804000',
+  '#e68a00', '#cc7a00', '#b36b00',
+  '#e6e600', '#ffff33', '#ffff99'
+];
+
+var colorArr2 = [
+  '#009900','#008000','#006600',
+  '#99004d','#b30059','#cc0066',
+  '#00ffcc','#00e6b8','#00cca3',
+  '#ffccff','#ff99ff','#ff66ff',
+  '#75a3a3','#669999','#527a7a',
+  '#b3b3b3','#8c8c8c','#666666'
 ];
 
 function createPixels() {
-  for (var i = 0; i < 3024; i++) {
+  for (var i = 0; i < 3540; i++) {
     var div = document.createElement('div');
     div.className = ('pixels');
     var getContainer = document.getElementById('pixelContainer');
@@ -19,33 +32,79 @@ function createPixels() {
   }
 }
 
-function createColors(arr) {
+function createColors(arr, id) {
+  var getPalette = document.getElementById(id);
   for (var i = 0; i < colorArr.length; i++) {
-    var currentColor = colorArr[i]; // red
-    console.log('this is the current color = ' + currentColor)
+    var currentColor = arr[i]; // red
     var div = document.createElement('div');
-    div.className = 'colors';
-    console.log('this is the class name = ' + div.className);
-    div.style.backgroundColor = currentColor;
-    var getPalette = document.getElementById('paletteContainer');
-    getPalette.append(div);
+    if (id === 'secondPaletteContainer') {
+      div.className = 'colors2';
+      div.style.backgroundColor = currentColor;
+      getPalette.append(div);
+    } else {
+      div.className = 'colors';
+      div.style.backgroundColor = currentColor;
+      getPalette.append(div);
+    }
   }
 }
 
 function colorClicker() {
   var grabPixelContainer = document.querySelector('#pixelContainer');
   var grabPalette = document.querySelector('#paletteContainer');
+  var grabSecondPalette = document.querySelector('#secondPaletteContainer');
   var color = '';
 
   var currentColor = function() {
     color = event.target.style.backgroundColor;
   }
-  var setColor = function() {
+
+  var setColor = function(){
     event.target.style.backgroundColor = color;
     event.target.style.borderColor = color;
   }
-  
+
+  var addMouse = function(){
+    grabPixelContainer.addEventListener('mouseover', setColor);
+  }
+
+  var removeMouse = function(){
+    grabPixelContainer.removeEventListener('mouseleave', setColor);
+
+  }
+
+  var brushState = true;
+
+  var paintBrush = function() {
+    if(brushState){
+      grabPixelContainer.addEventListener('mouseover', setColor);
+      brushState = false;
+    } else {
+      grabPixelContainer.removeEventListener('mouseover', setColor);
+      brushState = true;
+    }
+}
+
   grabPalette.addEventListener('click', currentColor)
-  grabPixelContainer.addEventListener('click', setColor);
+  grabSecondPalette.addEventListener('click', currentColor)
+  // grabPixelContainer.addEventListener('click', setColor);
+  grabPixelContainer.addEventListener('click', paintBrush);
 
 }
+
+// function colorClicker2() {
+//   var grabPixelContainer = document.querySelector('#pixelContainer');
+//   var grabPalette = document.querySelector('#secondPaletteContainer');
+//   var color = '';
+//
+//   var currentColor = function() {
+//     color = event.target.style.backgroundColor;
+//   }
+//   var setColor = function() {
+//     event.target.style.backgroundColor = color;
+//     event.target.style.borderColor = color;
+//   }
+//
+//   grabPalette.addEventListener('click', currentColor)
+//   grabPixelContainer.addEventListener('click', setColor);
+// }
