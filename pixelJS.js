@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function addPixels() {
   createPixels()
-  createColors(colorArr,'paletteContainer')
-  createColors(colorArr2,'secondPaletteContainer')
+  createColors(colorArr, 'paletteContainer')
+  createColors(colorArr2, 'secondPaletteContainer')
   colorClicker();
   // colorClicker2();
 })
@@ -15,16 +15,16 @@ var colorArr = [
 ];
 
 var colorArr2 = [
-  '#009900','#008000','#006600',
-  '#99004d','#b30059','#cc0066',
-  '#00ffcc','#00e6b8','#00cca3',
-  '#ffccff','#ff99ff','#ff66ff',
-  '#75a3a3','#669999','#527a7a',
-  '#b3b3b3','#8c8c8c','#666666'
+  '#009900', '#008000', '#006600',
+  '#99004d', '#b30059', '#cc0066',
+  '#00ffcc', '#00e6b8', '#00cca3',
+  '#ffccff', '#ff99ff', '#ff66ff',
+  '#75a3a3', '#669999', '#527a7a',
+  '#b3b3b3', '#8c8c8c', '#666666'
 ];
 
 function createPixels() {
-  for (var i = 0; i < 3540; i++) {
+  for (var i = 0; i < 3600; i++) {
     var div = document.createElement('div');
     div.className = ('pixels');
     var getContainer = document.getElementById('pixelContainer');
@@ -53,58 +53,34 @@ function colorClicker() {
   var grabPixelContainer = document.querySelector('#pixelContainer');
   var grabPalette = document.querySelector('#paletteContainer');
   var grabSecondPalette = document.querySelector('#secondPaletteContainer');
+  var currentColorBox = document.querySelector('#currentColor');
   var color = '';
+  var brushState = true;
+
 
   var currentColor = function() {
     color = event.target.style.backgroundColor;
+    currentColorBox.style.backgroundColor = color;
+
   }
 
-  var setColor = function(){
+  var setColor = function() {
     event.target.style.backgroundColor = color;
     event.target.style.borderColor = color;
   }
 
-  var addMouse = function(){
-    grabPixelContainer.addEventListener('mouseover', setColor);
-  }
-
-  var removeMouse = function(){
-    grabPixelContainer.removeEventListener('mouseleave', setColor);
-
-  }
-
-  var brushState = true;
-
   var paintBrush = function() {
-    if(brushState){
+    if (brushState) {
       grabPixelContainer.addEventListener('mouseover', setColor);
       brushState = false;
     } else {
       grabPixelContainer.removeEventListener('mouseover', setColor);
       brushState = true;
     }
-}
+  }
 
-  grabPalette.addEventListener('click', currentColor)
-  grabSecondPalette.addEventListener('click', currentColor)
-  // grabPixelContainer.addEventListener('click', setColor);
+  grabPalette.addEventListener('click', currentColor);
+  grabSecondPalette.addEventListener('click', currentColor);
   grabPixelContainer.addEventListener('click', paintBrush);
 
 }
-
-// function colorClicker2() {
-//   var grabPixelContainer = document.querySelector('#pixelContainer');
-//   var grabPalette = document.querySelector('#secondPaletteContainer');
-//   var color = '';
-//
-//   var currentColor = function() {
-//     color = event.target.style.backgroundColor;
-//   }
-//   var setColor = function() {
-//     event.target.style.backgroundColor = color;
-//     event.target.style.borderColor = color;
-//   }
-//
-//   grabPalette.addEventListener('click', currentColor)
-//   grabPixelContainer.addEventListener('click', setColor);
-// }

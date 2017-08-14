@@ -10,33 +10,47 @@
 <style>
   body {
     background-color: #d9d9d9;
-
   }
-  /*h1 {
+
+  h1 {
     text-align: center;
-    margin: auto;
+    margin: 0 auto;
     font-size: 55px;
     margin-top: 20px;
-  }*/
+    margin-bottom: 20px;
+  }
 
   #paletteContainer {
     background-color: white;
     width: 100px;
     height: 875px;
-    margin-left: 400px;
-    margin-top: 50px;
+    margin-left: 375px;
+    margin-top: 7px;
     float: left;
     border: 2px solid black;
+    /*padding-top: 5px;*/
   }
 
   #secondPaletteContainer {
     background-color: white;
-    width: 860px;
+    width: 876px;
     height: 100px;
-    clear: left;
+    /*clear: left;*/
     position: relative;
     border: 2px solid black;
-    margin-left: 535px;
+    margin-left: 39px;
+    margin-bottom: 26px;
+    margin-top: 25px;
+    display: inline-block;
+  }
+
+  #currentColor {
+    width: 75px;
+    height: 75px;
+    background-color: white;
+    /*clear: right;*/
+    margin-left: 391px;
+    display: inline-block;
   }
 
   .colors {
@@ -50,6 +64,7 @@
 
   .colors2 {
     display: inline-block;
+    /*margin: auto;*/
     height: 35px;
     width: 35px;
     border: 1px solid black;
@@ -59,12 +74,15 @@
   }
 
   #pixelContainer {
-    width: 875px;
-    height: 850px;
-    margin-top: 50px;
-    margin-left: 30px;
-    float: left;
-    margin-bottom: 60px;
+    width: 890px;
+    height: 885px;
+    /*margin-top: 50px;*/
+    /*margin-left: 30px;*/
+    /*float: left;*/
+    /*display: inline-block;*/
+    margin: 0 auto;
+    margin-top: 25px;
+    /*margin-bottom: 60px;*/
   }
 
   .pixels {
@@ -76,18 +94,31 @@
     border-color: #d9d9d9;
     background-color: white;
   }
+
+  #bottomDiv {
+    height: 100px;
+    width: 100%;
+  }
+
+
 </style>
 
 <body>
-  <!-- <h1>My Pixel Art Maker</h1> -->
-  <div id='contentContainer'>
-    <div id='paletteContainer'>
-    </div>
-    <div id='pixelContainer'>
+  <h1>My Pixel Art Maker</h1>
+
+  <div id='paletteContainer'>
+  </div>
+  <div id='pixelContainer'>
+  </div>
+  <div id='bottomDiv'>
+    <div id='currentColor'>
+      <!-- <p>Current Color</p> -->
     </div>
     <div id='secondPaletteContainer'>
     </div>
+
   </div>
+
 
 </body>
 
