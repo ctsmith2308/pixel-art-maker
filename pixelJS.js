@@ -54,6 +54,7 @@ function colorClicker() {
   var grabPalette = document.querySelector('#paletteContainer');
   var grabSecondPalette = document.querySelector('#secondPaletteContainer');
   var currentColorBox = document.querySelector('#currentColor');
+  var border = document.querySelector('#pixelContainer');
   var color = '';
   var brushState = true;
 
@@ -61,6 +62,7 @@ function colorClicker() {
   var currentColor = function() {
     color = event.target.style.backgroundColor;
     currentColorBox.style.backgroundColor = color;
+    border.style.backgroundColor = color;
 
   }
 
@@ -79,8 +81,13 @@ function colorClicker() {
     }
   }
 
+  function reset(event) {
+    grabPixelContainer.style.backgroundColor = 'white';
+    // color = "white";
+  }
+
   grabPalette.addEventListener('click', currentColor);
   grabSecondPalette.addEventListener('click', currentColor);
   grabPixelContainer.addEventListener('click', paintBrush);
-
+  button.addEventListener('click',reset);
 }
