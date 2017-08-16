@@ -24,7 +24,7 @@ var colorArr2 = [
 ];
 
 function createPixels() {
-  for (var i = 0; i < 3600; i++) {
+  for (var i = 0; i < 3906; i++) {
     var div = document.createElement('div');
     div.className = ('pixels');
     var getContainer = document.getElementById('pixelContainer');
